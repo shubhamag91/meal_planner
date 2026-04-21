@@ -10,9 +10,12 @@ Personal Indian meal planning system. Manages a Notion database of 60+ dishes, s
 cd ~/Projects/meal_planner/code
 pip install requests google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
-# Set env vars
+# Set env vars (create .env file or export)
 export NOTION_API_KEY="your_notion_key"
+export DATABASE_ID="your_notion_database_id"
 export EMAIL_PASSWORD="your_gmail_app_password"
+export SENDER_EMAIL="your_gmail_address"
+export WIFE_EMAIL="recipient_email"
 
 # Run manually
 python food_recommender.py

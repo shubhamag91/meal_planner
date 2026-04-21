@@ -1,7 +1,8 @@
 import requests
+import os
 
-NOTION_API_KEY = "***REMOVED_NOTION_TOKEN***"
-DATABASE_ID = "33be3817-a4e2-816d-a57d-f051463d5269"
+NOTION_API_KEY = os.environ.get("NOTION_API_KEY")
+DATABASE_ID = os.environ.get("DATABASE_ID")
 
 url = "https://api.notion.com/v1/pages"
 

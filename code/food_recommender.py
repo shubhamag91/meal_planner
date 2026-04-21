@@ -22,11 +22,13 @@ def log(msg):
         f.write(line + "\n")
 
 # -------- CONFIG --------
-NOTION_API_KEY = "***REMOVED_NOTION_TOKEN***"
-EMAIL_PASSWORD = "***REMOVED_EMAIL_PASSWORD***"
-SENDER_EMAIL = "shubhamag91@gmail.com"
-WIFE_EMAIL = "rudrakshharlalka@gmail.com"
-DATABASE_ID = "33be3817-a4e2-816d-a57d-f051463d5269"
+import os
+
+NOTION_API_KEY = os.environ.get("NOTION_API_KEY")
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL")
+WIFE_EMAIL = os.environ.get("WIFE_EMAIL")
+DATABASE_ID = os.environ.get("DATABASE_ID")
 
 headers = {
     "Authorization": f"Bearer {NOTION_API_KEY}",
