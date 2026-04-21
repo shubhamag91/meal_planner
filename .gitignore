@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Environment / secrets
+.env
+token.json
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+last_sent.txt
+
+# Temp
+tmp/
+outputs/
