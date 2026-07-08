@@ -19,6 +19,48 @@ export WIFE_EMAIL="recipient_email"
 
 # Run manually
 python food_recommender.py
+
+# Or set up automated daily execution (see below)
+```
+
+---
+
+## Automated Execution (Cron Job)
+
+The system can be configured to run automatically every day using the provided setup script:
+
+```bash
+# From the project root directory:
+./setup_cron.sh
+```
+
+This will:
+- Create a cron job to run the meal planner at 7:00 AM daily
+- Set up logging to `logs/meal_planner_cron.log`
+- Source your `.env` file for environment variables if it exists
+
+To view logs:
+```bash
+tail -f logs/meal_planner_cron.log
+```
+
+To modify the cron job:
+```bash
+crontab -e
+```
+
+To remove the cron job:
+```bash
+crontab -r
+```
+
+**Note**: Make sure your `.env` file is properly configured with:
+```
+NOTION_API_KEY=your_notion_key
+DATABASE_ID=your_database_id
+EMAIL_PASSWORD=your_email_password
+SENDER_EMAIL=your_email@gmail.com
+WIFE_EMAIL=recipient@email.com
 ```
 
 ---
