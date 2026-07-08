@@ -55,10 +55,6 @@ headers = {
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
-# -------- LOGGER --------
-def log(msg):
-    print("[{}] {}".format(datetime.now().strftime('%H:%M:%S'), msg))
-
 # -------- SEND ONCE PER DAY --------
 def should_send_today():
     today = date.today().isoformat()
@@ -104,16 +100,16 @@ def get_value(prop, type_):
 def get_recent_cuisine_penalty(dishes, lookback_days=3):
     """Calculate cuisine variety penalty based on recently eaten dishes"""
     from collections import Counter
-    import datetime
-    
+    from datetime import timedelta
+
     # Get recently eaten dishes (based on last_eaten)
     recent_dishes = []
-    cutoff_date = datetime.now() - datetime.timedelta(days=lookback_days)
-    
+    cutoff_date = datetime.now() - timedelta(days=lookback_days)
+
     for dish in dishes:
         if dish["last_eaten"]:
             try:
-                last_eaten_date = datetime.datetime.fromisoformat(dish["last_eaten"])
+                last_eaten_date = datetime.fromisoformat(dish["last_eaten"])
                 if last_eaten_date >= cutoff_date:
                     recent_dishes.append(dish)
             except:

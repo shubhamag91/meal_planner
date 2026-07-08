@@ -109,6 +109,7 @@ def create_page(dish):
     response = requests.post(url, headers=headers, json=data)
     return response.status_code, response.json()
 
-for dish in dishes:
-    status, res = create_page(dish)
-    print(status, dish["name"])
+if __name__ == "__main__":
+    for dish in dishes:
+        status, res = create_page(dish)
+        print(status, dish["name"])
